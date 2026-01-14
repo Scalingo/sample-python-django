@@ -11,7 +11,7 @@ services:
       - .:/usr/src/app
     command: "python manage.py runserver 0:8000"
   db:
-    image: postgres:14
+    image: postgres:16
     volumes:
       - ./docker/psql:/var/lib/postgresql/data
     environment:

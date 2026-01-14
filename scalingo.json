@@ -6,8 +6,11 @@
   "website": "https://scalingo.com",
   "addons": [
     {
-      "plan": "postgresql:postgresql-sandbox"
-    }
+      "plan": "postgresql:postgresql-starter-512",
+      "options": {
+        "version": "16"
+      }
+      }
   ],
   "formation": {
     "web": {
