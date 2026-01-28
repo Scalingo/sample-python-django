@@ -1,0 +1,18 @@
+[project]
+name = "sample-python-django"
+version = "0.1.0"
+description = "A sample Python Django project"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "asgiref",
+    "dj-database-url",
+    "django",
+    "django-environ",
+    "gunicorn",
+    "packaging",
+    "psycopg",
+    "sqlparse",
+    "typing-extensions",
+    "whitenoise",
+]
