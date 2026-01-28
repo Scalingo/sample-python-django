@@ -26,4 +26,4 @@ The application is running at this url: https://python-django.is-easy-on-scaling
 
 ## Deploy via one-click
 
-[![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.osc-fr1.scalingo.com/deploy?source=https://github.com/Scalingo/sample-python-django)
+[![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://dashboard.scalingo.com/create/app?source=https://github.com/Scalingo/sample-python-django#master)
