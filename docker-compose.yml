@@ -1,20 +1,26 @@
-version: '3'
 services:
-  web:
-    build: .
-    ports:
-      - 8000:8000
-    working_dir: /usr/src/app
-    environment:
-      DATABASE_URL: "postgres://mydjango:secret@db:5432/djangodb"
-    volumes:
-      - .:/usr/src/app
-    command: "python manage.py runserver 0:8000"
   db:
     image: postgres:16
     volumes:
       - ./docker/psql:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=djangodb
-      - POSTGRES_USER=mydjango
-      - POSTGRES_PASSWORD=secret
+      POSTGRES_DB: djangodb
+      POSTGRES_USER: mydjango
+      POSTGRES_PASSWORD: secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mydjango -d djangodb -h localhost"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    security_opt:
+      - no-new-privileges:true
+
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "postgresql://mydjango:secret@db:5432/djangodb"
+    depends_on:
+      db:
+        condition: service_healthy
